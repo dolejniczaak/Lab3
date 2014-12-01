@@ -1,0 +1,52 @@
+#map{height:600px;
+	margin:4px;
+	width:100%;
+	margin:8px; 
+	
+}
+.opcje{
+	float: left;
+	margin-top:4px;
+	width: 10%;
+	height: 400px;
+	}
+.body{
+	width: 100%;
+	text-align: left;
+ 	margin: 0 auto 0 auto; 
+	}
+.prawa{
+	float:left;
+	width:90%;
+}
+.naglowek {
+	position:relative;
+	background-image:url("images/mapa.jpg");
+	background-size:cover;
+    height: 200px;
+    width: 100%;
+    border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	padding-top: 5px;
+	padding-right:8px;
+	padding-bottom: 15px;
+	}
+.logo{
+	font-family:"Arial Narrow";
+	font-size: 60px;
+	font:bold;
+	margin-left: 20px;
+	margin-top: 70px;
+}
+
+.markerAdd,.PopupAdd,.PopupRemove,.circleAdd,.circleRemove,.markerRemove,.gminyAdd,.wmsRemove,.dzialkiAdd,.poczatek,.budynkiAdd,.ortofotoAdd{
+	height:30px;
+	margin:4px;
+	border-radius:4px;
+	width:100%;
+	background-color:#63E852; 
+	font-family:"Arial Narrow";
+	font-size: 20px;
+	vertical-align:middle;
+	text-align: center;
+}
