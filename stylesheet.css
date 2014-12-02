@@ -1,9 +1,8 @@
-#map{height:600px;
+#map{
+	height:600px;
 	margin:4px;
 	width:100%;
-	margin:8px; 
-	
-}
+	margin:8px;}
 .opcje{
 	float: left;
 	margin-top:4px;
@@ -39,7 +38,7 @@
 	margin-top: 70px;
 }
 
-.markerAdd,.PopupAdd,.PopupRemove,.circleAdd,.circleRemove,.markerRemove,.gminyAdd,.wmsRemove,.dzialkiAdd,.poczatek,.budynkiAdd,.ortofotoAdd{
+.pokazZab, .ukryjZab, .markerAdd,.PopupAdd,.PopupRemove,.circleAdd,.circleRemove,.markerRemove,.gminyAdd,.wmsRemove,.dzialkiAdd,.poczatek,.budynkiAdd,.ortofotoAdd{
 	height:30px;
 	margin:4px;
 	border-radius:4px;
@@ -49,4 +48,5 @@
 	font-size: 20px;
 	vertical-align:middle;
 	text-align: center;
+	border-color: black;
 }

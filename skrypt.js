@@ -3,8 +3,9 @@ kolka=[];
 mark=false;
 kol=false;
 pop=false;
-popupu=[];
+popupy=[];
 wmslist=[];
+zabytki=[];
 $(document).ready(function(){
 	var Opsm="http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
 var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
@@ -73,14 +74,14 @@ map.on('click', function(e) {
 			$('.circleAdd').css( "background-color", "#63E852");
 		}
 		else if (pop){
+			
 			var komunikat = prompt("Podaj komunikat");
-			var popup = L.popup()
-    			.setLatLng(e.latlng)
-   			 	.setContent(komunikat.toString())
-   				.openOn(map);
-   				popupy.push(popup);
-				pop=false;
-				$('.PopupAdd').css( "background-color", "#63E852");
+			var markerek = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
+			markerek.bindPopup(komunikat.toString()).openPopup();
+			popupy.push(markerek);
+			pop=false;
+			$('.PopupAdd').css( "background-color", "#63E852");
+			
 		}
 
 	});
@@ -137,6 +138,66 @@ $('.wmsRemove').click(function() {
 			map.removeLayer(wmslist[i]);
 		}
 });
+
+
+function onEachFeature(feature, layer) {
+     if (feature.properties && feature.properties.popupContent) {
+        layer.bindPopup(feature.properties.popupContent,{
+        closeButton: false,
+        minWidth: 280
+    });
+    }
+}
+
+var geojsonFeature = [{
+    "type": "Feature",
+    "properties": {
+    "popupContent": '<a target="_blank" class="popup" href=""> <img src="http://www.krzemieniewo.net/images/drzewce.jpg"/></a>'
+    },
+    "geometry": {
+        "type": "Point",
+        "coordinates": [16.8515498, 51.7868788]
+    }},
+    {
+    "type": "Feature",
+    "properties": {
+    "popupContent": '<a target="_blank" class="popup" href=""> <img src=" http://panoramaleszna.pl/images/com_sobi2/clients/1_img.jpg"/></a>'
+    },
+    "geometry": {
+        "type": "Point",
+        "coordinates": [16.89654, 51.78633]
+    }},
+    {
+    "type": "Feature",
+    "properties": {
+    "popupContent": '<a target="_blank" class="popup" href=""> <img src="http://images.polskaniezwykla.pl/medium/291073.jpg"/></a>'
+    },
+    "geometry": {
+        "type": "Point",
+        "coordinates": [16.8823841, 51.8237038]
+    }},{
+    "type": "Feature",
+    "properties": {
+    "popupContent": '<a target="_blank" class="popup" href=""> <img src="http://galeria.poniec.net/albums/userpics/10004/normal_poniec.jpg"/></a>'
+    },
+    "geometry": {
+        "type": "Point",
+        "coordinates": [16.8079914,51.7646118]
+    }
+}];
+
+$('.pokazZab').click(function() {
+var zab = L.geoJson(geojsonFeature, {
+    onEachFeature: onEachFeature
+}).addTo(map);
+	zabytki.push(zab);
+});
+$('.ukryjZab').click(function(){
+	for (var i=0;i<zabytki.length;i++) {
+			map.removeLayer(zabytki[i]);
+		}
+});
+
 
 
 
